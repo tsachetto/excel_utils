@@ -1,0 +1,18 @@
+Dim fd As Office.FileDialog
+
+'Select one file.
+
+Set fd = Application.FileDialog(msoFileDialogFilePicker)
+
+With fd
+
+    .AllowMultiSelect = False
+    .Title = "Selecione um arquivo."
+    .Filters.Add "Excel", "*.xls", ".xlsx", ".xlm"
+    .Filters.Add "All", "*.*"
+
+    If .Show = True Then
+        txtFileName = .SelectedItems(1)
+    End If
+
+End With
