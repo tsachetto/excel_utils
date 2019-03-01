@@ -5,7 +5,7 @@ Private Sub Worksheet_SelectionChange(ByVal Target As Range)
     Dim rInt As Range
     Dim rCell As Range
 
-    Set rInt = Intersect(Target, Range("F3:F312"))
+    Set rInt = Intersect(Target, Range("F3:G312"))
     
     If Not rInt Is Nothing Then
         
@@ -15,10 +15,12 @@ Private Sub Worksheet_SelectionChange(ByVal Target As Range)
     
         For Each rCell In rInt
         
-            If rCell.Value = "x" Then
+            If rCell.Value = "X" Then
             rCell.Value = ""
+            ElseIf rCell.Value <> "" Then
+            Exit Sub
             Else
-            rCell.Value = "x"
+            rCell.Value = "X"
             End If
             
         Next
