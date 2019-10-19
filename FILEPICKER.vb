@@ -1,18 +1,21 @@
+Dim myFile As String
 Dim objFileDialog As Office.FileDialog
 
+'GetFile
     Set objFileDialog = Application.FileDialog(MsoFileDialogType.msoFileDialogFilePicker)
     
     With objFileDialog
         .AllowMultiSelect = False
-        .ButtonName = "Escolher"
-        .Title = "Escolher arquivo:"
-        .Filters.Add "Arquivos Excel", "*.xlsx; *.xlsm; *.xls; *.xlsb", 1
+    .ButtonName = "Escolher Texto"
+    .Title = "Escolher Arquivo Texto:"
+    .Filters.Add "Importar Texto", "*.txt", 1
     
-    'teste  
+    'teste
          If (.Show > 0) Then
+             Exit Sub
              End If
          If (.SelectedItems.Count > 0) Then
-             Call MsgBox(.SelectedItems(1))
+            myFile = (.SelectedItems(1))
          End If
          
     End With
