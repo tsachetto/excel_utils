@@ -1,0 +1,13 @@
+Sub getFiles()
+        
+Dim StrFile As String
+       
+    StrFile = Dir("P:\AABB\EXCEL\*.xls")
+  
+    Do While Len(StrFile) > 0
+       
+        StrFile = Dir
+        
+    Loop
+    
+End Sub
