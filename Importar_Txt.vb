@@ -1,5 +1,9 @@
+    Dim myFile as String
+
+    myFile = "C:\Users\Arquivo.txt"
+
     With ActiveSheet.QueryTables.Add(Connection:= _
-        "TEXT;C:\Users\Arquivo.txt", Destination:=Range("$C$1"))
+        "TEXT;" & myFile, Destination:=Range("$C$1"))
         .Name = "TextoImportado "
         .FieldNames = True
         .RowNumbers = False
@@ -25,3 +29,7 @@
         .TextFileTrailingMinusNumbers = True
         .Refresh BackgroundQuery:=False
     End With
+
+    For i = ActiveWorkbook.Connections.Count To 1 Step -1
+    ActiveWorkbook.Connections(i).Delete
+    Next
