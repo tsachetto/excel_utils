@@ -17,5 +17,9 @@ Dim objFileDialog As Office.FileDialog
          If (.SelectedItems.Count > 0) Then
             myFile = (.SelectedItems(1))
          End If
+            
+         If myFile = "" Then
+            Exit Sub
+         Else: End If            
          
     End With
